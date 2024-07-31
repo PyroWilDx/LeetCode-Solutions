@@ -1,48 +1,76 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.PriorityQueue;
+import java.util.Queue;
 
-class Twitter {
-    List<int[]> tweets;
-    Map<Integer, Set<Integer>> follows;
-
-    public Twitter() {
-        tweets = new ArrayList<>();
-        follows = new HashMap<>();
-    }
-    
-    public void postTweet(int userId, int tweetId) {
-        tweets.add(new int[] { userId, tweetId });
-    }
-    
-    public List<Integer> getNewsFeed(int userId) {
-        List<Integer> result = new ArrayList<>();
-        Set<Integer> followed = follows.get(userId);
-
-        for (int i = tweets.size() - 1; i >= 0; i--) {
-            int posterId = tweets.get(i)[0];
-            if (userId == posterId || (followed != null && followed.contains(posterId))) {
-                result.add(tweets.get(i)[1]);
-                if (result.size() == 10) {
-                    break;
-                }
+class Solution {
+    public int leastInterval(char[] tasks, int n) {
+        TaskFreq[] freqs = new TaskFreq['Z' + 1];
+        for (char task : tasks) {
+            if (freqs[task] == null) {
+                freqs[task] = new TaskFreq(task);
+            } else {
+                freqs[task].exec++;
             }
         }
+
+        Queue<TaskFreq> pQueue = new PriorityQueue<>();
+        for (char c = 'A'; c <= 'Z'; c++) {
+            if (freqs[c] != null) {
+                pQueue.add(freqs[c]);
+            }
+        }
+
+        Queue<TaskDate> waitingTasks = new PriorityQueue<>();
+        int result = 0;
+
+        while (!pQueue.isEmpty() || !waitingTasks.isEmpty()) {
+            if (!waitingTasks.isEmpty()) {
+                if (waitingTasks.peek().wake == result) {
+                    TaskDate td = waitingTasks.poll();
+                    pQueue.add(td.task);
+                }
+            }
+
+            if (!pQueue.isEmpty()) {
+                TaskFreq tf = pQueue.poll();
+                tf.exec--;
+                if (tf.exec != 0) {
+                    waitingTasks.add(new TaskDate(tf, result + n + 1));
+                }
+            }
+
+            result++;
+        }
+
         return result;
     }
-    
-    public void follow(int followerId, int followeeId) {
-        follows.computeIfAbsent(followerId, v -> new HashSet<>()).add(followeeId);
+
+    public static class TaskFreq implements Comparable<TaskFreq> {
+        public char task;
+        public int exec;
+
+        public TaskFreq(char task) {
+            this.task = task;
+            this.exec = 1;
+        }
+        
+        @Override
+        public int compareTo(TaskFreq tf) {
+            return tf.exec - exec;
+        }
     }
-    
-    public void unfollow(int followerId, int followeeId) {
-        if (follows.containsKey(followerId)) {
-            if (follows.get(followerId).contains(followeeId)) {
-                follows.get(followerId).remove(followeeId);
-            }
+
+    public static class TaskDate implements Comparable<TaskDate> {
+        public TaskFreq task;
+        public int wake;
+
+        public TaskDate(TaskFreq task, int wake) {
+            this.task = task;
+            this.wake = wake;
+        }
+
+        @Override
+        public int compareTo(TaskDate td) {
+            return wake - td.wake;
         }
     }
 }
