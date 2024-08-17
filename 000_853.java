@@ -5,8 +5,9 @@ class Solution {
         final int N = position.length;
 
         Pair[] posSpeed = new Pair[N];
-        for (int i = 0; i < N; i++) posSpeed[i] = new Pair(position[i], speed[i]);
-        
+        for (int i = 0; i < N; i++)
+            posSpeed[i] = new Pair(position[i], speed[i]);
+
         Arrays.sort(posSpeed);
         float currFleetArrivalTime = (target - posSpeed[N - 1].x1) / (float) posSpeed[N - 1].x2;
 
@@ -14,13 +15,14 @@ class Solution {
 
         for (int i = N - 2; i >= 0; i--) {
             float arrivalTime = (target - posSpeed[i].x1) / (float) posSpeed[i].x2;
-            if (arrivalTime <= currFleetArrivalTime) continue;
+            if (arrivalTime <= currFleetArrivalTime)
+                continue;
             else {
                 result++;
                 currFleetArrivalTime = arrivalTime;
             }
         }
-        
+
         return result + 1;
     }
 

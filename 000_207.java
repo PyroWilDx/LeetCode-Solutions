@@ -16,20 +16,24 @@ class Solution {
         }
 
         for (int i = 0; i < numCourses; i++) {
-            if (!canFinishCourse(i, depMap, 0)) return false;
+            if (!canFinishCourse(i, depMap, 0))
+                return false;
         }
 
         return true;
     }
 
     public boolean canFinishCourse(int course, Map<Integer, Set<Integer>> depMap, int iteration) {
-        if (!depMap.containsKey(course)) return true;
+        if (!depMap.containsKey(course))
+            return true;
 
-        if (iteration >= numCourses) return false;
+        if (iteration >= numCourses)
+            return false;
 
         Set<Integer> deps = depMap.get(course);
         for (int dep : deps) {
-            if (!canFinishCourse(dep, depMap, iteration + 1)) return false;
+            if (!canFinishCourse(dep, depMap, iteration + 1))
+                return false;
         }
         depMap.remove(course);
 

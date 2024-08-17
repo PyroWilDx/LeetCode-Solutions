@@ -19,15 +19,19 @@ class Solution {
 
         for (int i = 0; i < M; i++) {
             for (int j = 0; j < N; j++) {
-                if (board[i][j] == '#') board[i][j] = 'O';
-                else board[i][j] = 'X';
+                if (board[i][j] == '#')
+                    board[i][j] = 'O';
+                else
+                    board[i][j] = 'X';
             }
         }
     }
 
     public void markRec(int i, int j) {
-        if (i < 0 || j < 0 || i >= M || j >= N) return;
-        if (board[i][j] != 'O') return;
+        if (i < 0 || j < 0 || i >= M || j >= N)
+            return;
+        if (board[i][j] != 'O')
+            return;
 
         board[i][j] = '#';
         markRec(i - 1, j);

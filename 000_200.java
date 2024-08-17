@@ -12,19 +12,22 @@ class Solution {
 
         for (int i = 0; i < M; i++) {
             for (int j = 0; j < N; j++) {
-                if (grid[i][j] == '0') continue;
+                if (grid[i][j] == '0')
+                    continue;
 
                 destroyIsland(i, j);
                 result++;
             }
         }
-        
+
         return result;
     }
 
     public void destroyIsland(int i, int j) {
-        if (i < 0 || i >= M || j < 0 || j >= N) return;
-        if (grid[i][j] == '0') return;
+        if (i < 0 || i >= M || j < 0 || j >= N)
+            return;
+        if (grid[i][j] == '0')
+            return;
 
         grid[i][j] = '0';
 

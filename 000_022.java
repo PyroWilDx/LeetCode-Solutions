@@ -22,7 +22,9 @@ class Solution {
             return;
         }
 
-        if (openCount < N) generateParenthesisRec(openCount + 1, closeCount, currString + "(");
-        if (openCount > closeCount) generateParenthesisRec(openCount, closeCount + 1, currString + ")");
+        if (openCount < N)
+            generateParenthesisRec(openCount + 1, closeCount, currString + "(");
+        if (openCount > closeCount)
+            generateParenthesisRec(openCount, closeCount + 1, currString + ")");
     }
 }

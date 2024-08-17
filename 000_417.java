@@ -41,7 +41,8 @@ class Solution {
     }
 
     public void checkSquareRec(int i, int j, int lastHeight) {
-        if (pacFlag && atlFlag) return;
+        if (pacFlag && atlFlag)
+            return;
 
         if (i < 0 || j < 0) {
             pacFlag = true;

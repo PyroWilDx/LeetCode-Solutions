@@ -3,11 +3,17 @@ class Solution {
         int val;
         ListNode next;
 
-        ListNode() {}
+        ListNode() {
+        }
 
-        ListNode(int val) { this.val = val; }
+        ListNode(int val) {
+            this.val = val;
+        }
 
-        ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -25,7 +31,7 @@ class Solution {
         }
 
         ListNode dumpNode = new ListNode(0);
-        
+
         while (curr1 != null) {
             hasCarry = handleNode(curr1, dumpNode, result, hasCarry);
             curr1 = curr1.next;
@@ -38,14 +44,16 @@ class Solution {
             result = result.next;
         }
 
-        if (hasCarry) result.next = new ListNode(1, null);
+        if (hasCarry)
+            result.next = new ListNode(1, null);
 
         return resultHead.next;
     }
 
     public boolean handleNode(ListNode curr1, ListNode curr2, ListNode result, boolean hasCarry) {
         int value = curr1.val + curr2.val;
-        if (hasCarry) value++;
+        if (hasCarry)
+            value++;
         hasCarry = false;
 
         if (value >= 10) {

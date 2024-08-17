@@ -9,8 +9,13 @@ class Solution {
         TreeNode left;
         TreeNode right;
 
-        TreeNode() {}
-        TreeNode(int val) { this.val = val; }
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
         TreeNode(int val, TreeNode left, TreeNode right) {
             this.val = val;
             this.left = left;
@@ -19,10 +24,11 @@ class Solution {
     }
 
     public List<List<Integer>> levelOrder(TreeNode root) {
-        if (root == null) return new ArrayList<>();
+        if (root == null)
+            return new ArrayList<>();
 
         List<List<Integer>> result = new ArrayList<>();
- 
+
         Deque<TreeNode> stack = new ArrayDeque<>();
         Deque<Integer> lvlStack = new ArrayDeque<>();
         stack.add(root);

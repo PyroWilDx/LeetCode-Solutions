@@ -15,9 +15,10 @@ class KthLargest {
             queue.poll();
         }
     }
-    
+
     public int add(int val) {
-        if (queue.size() < k) queue.add(val);
+        if (queue.size() < k)
+            queue.add(val);
         else if (val > queue.peek()) {
             queue.poll();
             queue.add(val);

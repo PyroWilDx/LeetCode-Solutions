@@ -3,7 +3,7 @@ class Solution {
 
     public void islandsAndTreasure(int[][] grid) {
         this.grid = grid;
-    
+
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
                 if (grid[i][j] == 0) {
@@ -17,8 +17,10 @@ class Solution {
     }
 
     public void updateCells(int i, int j, int d) {
-        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length) return;
-        if (d >= grid[i][j]) return;
+        if (i < 0 || i >= grid.length || j < 0 || j >= grid[0].length)
+            return;
+        if (d >= grid[i][j])
+            return;
 
         grid[i][j] = d;
 

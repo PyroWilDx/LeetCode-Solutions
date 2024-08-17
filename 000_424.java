@@ -1,6 +1,7 @@
 class Solution {
     public int characterReplacement(String s, int k) {
-        if (s.length() == 0) return 0;
+        if (s.length() == 0)
+            return 0;
 
         int result = 0;
 
@@ -15,12 +16,15 @@ class Solution {
                 letterFreq[s.charAt(left) - 'A']--;
                 left++;
             } else {
-                if (length > result) result = length;
+                if (length > result)
+                    result = length;
                 right++;
-                if (right == s.length()) break;
+                if (right == s.length())
+                    break;
                 int currChar = s.charAt(right) - 'A';
                 letterFreq[currChar]++;
-                if (letterFreq[currChar] > maxFreq) maxFreq = letterFreq[currChar];
+                if (letterFreq[currChar] > maxFreq)
+                    maxFreq = letterFreq[currChar];
             }
         }
 

@@ -15,7 +15,8 @@ class Solution {
         List<Integer> newList = new ArrayList<>();
         result.add(newList);
         for (int i = 0; i < nums.length; i++) {
-            if (i != 0 && nums[i] == nums[i - 1]) continue;
+            if (i != 0 && nums[i] == nums[i - 1])
+                continue;
 
             subsetsWithDupRec(newList, i);
         }
@@ -28,7 +29,8 @@ class Solution {
         newList.add(nums[index]);
         result.add(newList);
         for (int i = index + 1; i < nums.length; i++) {
-            if (i != index + 1 && nums[i] == nums[i - 1]) continue;
+            if (i != index + 1 && nums[i] == nums[i - 1])
+                continue;
 
             subsetsWithDupRec(newList, i);
         }

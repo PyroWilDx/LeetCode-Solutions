@@ -25,11 +25,14 @@ class Solution {
                     int low = Math.max(num1Left, num2Left);
                     int high = Math.min(num1Right, num2Right);
                     return (low + high) / 2.0;
-                } else return Math.min(num1Right, num2Right);
+                } else
+                    return Math.min(num1Right, num2Right);
             }
 
-            if (num1Left > num2Right) right = mid - 1;
-            else left = mid + 1;
+            if (num1Left > num2Right)
+                right = mid - 1;
+            else
+                left = mid + 1;
         }
     }
 }

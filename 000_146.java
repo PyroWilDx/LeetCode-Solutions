@@ -7,7 +7,7 @@ class LRUCache {
         public int value;
         public ListNode prev;
         public ListNode next;
-        
+
         public ListNode(int key, int value, ListNode next) {
             this.key = key;
             this.value = value;
@@ -16,8 +16,10 @@ class LRUCache {
         }
 
         public void removeSelf() {
-            if (prev != null) prev.next = next;
-            if (next != null) next.prev = prev;
+            if (prev != null)
+                prev.next = next;
+            if (next != null)
+                next.prev = prev;
         }
     }
 
@@ -34,12 +36,15 @@ class LRUCache {
     }
 
     public int get(int key) {
-        if (!keyNodes.containsKey(key)) return -1;
+        if (!keyNodes.containsKey(key))
+            return -1;
 
-        if (capacity == 1 || keyNodes.size() == 1) return keyNodes.get(key).value;
+        if (capacity == 1 || keyNodes.size() == 1)
+            return keyNodes.get(key).value;
 
         ListNode node = keyNodes.get(key);
-        if (head == node) return node.value;
+        if (head == node)
+            return node.value;
 
         node.removeSelf();
 
@@ -82,10 +87,12 @@ class LRUCache {
             keyNodes.remove(lastQueue.key);
         } else if (keyNodes.containsKey(key)) {
             ListNode formerNode = keyNodes.get(key);
-            
+
             if (queue == formerNode) {
-                if (formerNode.prev != null) queue = formerNode.prev;
-                else queue = head;
+                if (formerNode.prev != null)
+                    queue = formerNode.prev;
+                else
+                    queue = head;
             }
 
             formerNode.removeSelf();

@@ -3,22 +3,23 @@ import java.util.List;
 
 class Solution {
     private char[][] numsMap = new char[][] {
-        {},
-        {'a', 'b', 'c'},
-        {'d', 'e', 'f'},
-        {'g', 'h', 'i'},
-        {'j', 'k', 'l'},
-        {'m', 'n', 'o'},
-        {'p', 'q', 'r', 's'},
-        {'t', 'u', 'v'},
-        {'w', 'x', 'y', 'z'}
+            {},
+            { 'a', 'b', 'c' },
+            { 'd', 'e', 'f' },
+            { 'g', 'h', 'i' },
+            { 'j', 'k', 'l' },
+            { 'm', 'n', 'o' },
+            { 'p', 'q', 'r', 's' },
+            { 't', 'u', 'v' },
+            { 'w', 'x', 'y', 'z' }
     };
 
     String digits;
     private List<String> result;
 
     public List<String> letterCombinations(String digits) {
-        if (digits.isEmpty()) return new ArrayList<>();
+        if (digits.isEmpty())
+            return new ArrayList<>();
 
         this.digits = digits;
 

@@ -18,14 +18,16 @@ class Solution {
     }
 
     public int getAreaOfIsland(int i, int j) {
-        if (i < 0 || i >= M || j < 0 || j >= N) return 0;
-        if (grid[i][j] == 0) return 0;
+        if (i < 0 || i >= M || j < 0 || j >= N)
+            return 0;
+        if (grid[i][j] == 0)
+            return 0;
 
         grid[i][j] = 0;
         return 1
-            + getAreaOfIsland(i - 1, j)
-            + getAreaOfIsland(i + 1, j)
-            + getAreaOfIsland(i, j - 1)
-            + getAreaOfIsland(i, j + 1);
+                + getAreaOfIsland(i - 1, j)
+                + getAreaOfIsland(i + 1, j)
+                + getAreaOfIsland(i, j - 1)
+                + getAreaOfIsland(i, j + 1);
     }
 }

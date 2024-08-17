@@ -52,7 +52,7 @@ class Solution {
             this.task = task;
             this.exec = 1;
         }
-        
+
         @Override
         public int compareTo(TaskFreq tf) {
             return tf.exec - exec;

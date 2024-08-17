@@ -15,6 +15,6 @@ class Solution {
                 pQueue.offer(y - x);
             }
         }
-        return pQueue.isEmpty() ? 0 : pQueue.peek();    
+        return pQueue.isEmpty() ? 0 : pQueue.peek();
     }
 }

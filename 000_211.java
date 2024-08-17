@@ -4,7 +4,7 @@ class WordDictionary {
     public WordDictionary() {
         root = new Node();
     }
-    
+
     public void addWord(String word) {
         Node curr = root;
         for (int i = 0; i < word.length(); i++) {
@@ -12,7 +12,7 @@ class WordDictionary {
         }
         curr.setIsEndingTrue();
     }
-    
+
     public boolean search(String word) {
         return searchRec(root, 0, word);
     }
@@ -26,7 +26,8 @@ class WordDictionary {
         if (value == '.') {
             boolean result = false;
             for (Node nextNode : curr.getNextNodes()) {
-                if (nextNode == null) continue;
+                if (nextNode == null)
+                    continue;
 
                 result = result || searchRec(nextNode, index + 1, word);
             }

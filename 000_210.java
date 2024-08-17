@@ -23,10 +23,12 @@ class Solution {
         int resultIndex = 0;
         for (int i = 0; i < numCourses; i++) {
             List<Integer> currCourseOrder = new ArrayList<>();
-            if (!findCourseOrder(i, 0, currCourseOrder)) return new int[0];
+            if (!findCourseOrder(i, 0, currCourseOrder))
+                return new int[0];
 
             for (int course : currCourseOrder) {
-                if (added.contains(course)) continue;
+                if (added.contains(course))
+                    continue;
 
                 result[resultIndex] = course;
                 resultIndex++;
@@ -42,10 +44,12 @@ class Solution {
             return true;
         }
 
-        if (iteration == numCourses) return false;
+        if (iteration == numCourses)
+            return false;
 
         for (int dep : depMap.get(course)) {
-            if (!findCourseOrder(dep, iteration + 1, courseOrder)) return false;
+            if (!findCourseOrder(dep, iteration + 1, courseOrder))
+                return false;
         }
         depMap.remove(course);
         courseOrder.add(course);

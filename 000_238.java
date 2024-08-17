@@ -5,7 +5,7 @@ class Solution {
         int[] preArray = new int[N];
         preArray[0] = nums[0];
         for (int i = 1; i < N; i++) {
-            preArray[i] = preArray[i - 1] * nums[i]; 
+            preArray[i] = preArray[i - 1] * nums[i];
         }
 
         int[] postArray = new int[N];
@@ -20,7 +20,7 @@ class Solution {
         for (int i = 1; i < N - 1; i++) {
             result[i] = preArray[i - 1] * postArray[i + 1];
         }
-        
+
         return result;
     }
 }

@@ -15,7 +15,8 @@ class Solution {
 
         result = new ArrayList<>();
         for (int i = 0; i < candidates.length; i++) {
-            if (i != 0 && candidates[i] == candidates[i - 1]) continue;
+            if (i != 0 && candidates[i] == candidates[i - 1])
+                continue;
 
             combinationSum2Rec(0, i);
         }
@@ -31,12 +32,14 @@ class Solution {
             List<List<Integer>> r = new ArrayList<>();
             r.add(l);
             return r;
-        } else if (currSum > target) return null;
+        } else if (currSum > target)
+            return null;
 
         List<List<Integer>> allL = new ArrayList<>();
         for (int i = index + 1; i < candidates.length; i++) {
-            if (i != index + 1 && candidates[i] == candidates[i - 1]) continue;
-            
+            if (i != index + 1 && candidates[i] == candidates[i - 1])
+                continue;
+
             List<List<Integer>> r = combinationSum2Rec(currSum, i);
             if (r != null) {
                 for (List<Integer> l : r) {

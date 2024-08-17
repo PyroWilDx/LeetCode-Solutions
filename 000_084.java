@@ -6,7 +6,7 @@ class Solution {
         final int N = heights.length;
 
         int result = 0;
-        
+
         Deque<int[]> idxHeights = new ArrayDeque<>();
         for (int i = 0; i < N; i++) {
             int start = i;
@@ -14,7 +14,8 @@ class Solution {
             while (!idxHeights.isEmpty() && h < idxHeights.peekLast()[1]) {
                 int[] idxHeight = idxHeights.removeLast();
                 int area = (i - idxHeight[0]) * idxHeight[1];
-                if (area > result) result = area;
+                if (area > result)
+                    result = area;
                 start = idxHeight[0];
             }
             idxHeights.addLast(new int[] { start, heights[i] });
@@ -23,7 +24,8 @@ class Solution {
         while (!idxHeights.isEmpty()) {
             int[] idxHeight = idxHeights.removeLast();
             int area = (N - idxHeight[0]) * idxHeight[1];
-            if (area > result) result = area;
+            if (area > result)
+                result = area;
         }
 
         return result;

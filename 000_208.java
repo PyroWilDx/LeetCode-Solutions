@@ -31,7 +31,8 @@ class Trie {
     }
 
     public boolean startsWith(String prefix) {
-        if (words.contains(prefix)) return true;
+        if (words.contains(prefix))
+            return true;
 
         Node curr = head;
         for (int i = 0; i < prefix.length(); i++) {
@@ -47,7 +48,7 @@ class Trie {
 
     private class Node {
         public Map<Character, Node> nextNodes;
-    
+
         public Node() {
             this.nextNodes = new HashMap<>();
         }

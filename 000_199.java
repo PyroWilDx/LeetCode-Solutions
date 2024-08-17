@@ -7,8 +7,13 @@ class Solution {
         TreeNode left;
         TreeNode right;
 
-        TreeNode() {}
-        TreeNode(int val) { this.val = val; }
+        TreeNode() {
+        }
+
+        TreeNode(int val) {
+            this.val = val;
+        }
+
         TreeNode(int val, TreeNode left, TreeNode right) {
             this.val = val;
             this.left = left;
@@ -23,10 +28,13 @@ class Solution {
     }
 
     public void rightSideViewRec(TreeNode node, int d, List<Integer> result) {
-        if (node == null) return;
+        if (node == null)
+            return;
 
-        if (result.size() == d) result.add(node.val);
-        else result.set(d, node.val);
+        if (result.size() == d)
+            result.add(node.val);
+        else
+            result.set(d, node.val);
 
         rightSideViewRec(node.left, d + 1, result);
         rightSideViewRec(node.right, d + 1, result);

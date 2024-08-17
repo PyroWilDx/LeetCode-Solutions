@@ -2,7 +2,8 @@ import java.util.HashSet;
 
 class Solution {
     public String minWindow(String s, String t) {
-        if (t.length() > s.length()) return "";
+        if (t.length() > s.length())
+            return "";
 
         int maxCount = 0;
         int nOfCharAtMaxCount = 0;
@@ -11,14 +12,15 @@ class Solution {
         int[] charCount = new int[Math.max('z', 'Z') + 1];
         for (int i = 0; i < t.length(); i++) {
             char c = t.charAt(i);
-            
+
             tChars.add(c);
 
             charCount[c]++;
             if (charCount[c] > maxCount) {
                 maxCount = charCount[c];
                 nOfCharAtMaxCount = 1;
-            } else if (charCount[c] == maxCount) nOfCharAtMaxCount++;
+            } else if (charCount[c] == maxCount)
+                nOfCharAtMaxCount++;
         }
 
         int bestI = 0;
@@ -30,8 +32,9 @@ class Solution {
         while (left < maxI) {
             boolean isMinWinSubStr = maxCount <= 0;
             if (isMinWinSubStr || right == s.length()) {
-                if (right == s.length() && !isMinWinSubStr) break;
-                
+                if (right == s.length() && !isMinWinSubStr)
+                    break;
+
                 if (isMinWinSubStr && (right - left < bestJ - bestI)) {
                     bestI = left;
                     bestJ = right;
@@ -42,7 +45,8 @@ class Solution {
                     if (charCount[cLeft] > maxCount) {
                         maxCount = charCount[cLeft];
                         nOfCharAtMaxCount = 1;
-                    } else if (charCount[cLeft] == maxCount) nOfCharAtMaxCount++;
+                    } else if (charCount[cLeft] == maxCount)
+                        nOfCharAtMaxCount++;
                 }
                 left++;
             } else {
@@ -59,21 +63,24 @@ class Solution {
                     }
                 }
 
-                right++;    
+                right++;
             }
         }
 
-        if (bestI == 0 && bestJ == Integer.MAX_VALUE) return "";
+        if (bestI == 0 && bestJ == Integer.MAX_VALUE)
+            return "";
         return s.substring(bestI, bestJ);
     }
 
     public int getNOfCharAtCount(int[] charCount, int count) {
         int result = 0;
         for (char c = 'a'; c <= 'z'; c++) {
-            if (charCount[c] == count) result++;
+            if (charCount[c] == count)
+                result++;
         }
         for (char c = 'A'; c <= 'Z'; c++) {
-            if (charCount[c] == count) result++;
+            if (charCount[c] == count)
+                result++;
         }
         return result;
     }

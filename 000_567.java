@@ -2,7 +2,8 @@ import java.util.HashMap;
 
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
-        if (s1.length() > s2.length()) return false;
+        if (s1.length() > s2.length())
+            return false;
 
         HashMap<Character, Integer> charCount = new HashMap<>();
         for (int i = 0; i < s1.length(); i++) {
@@ -11,21 +12,26 @@ class Solution {
                 charCount.put(c1, 1);
             } else {
                 int newCount = charCount.get(c1) + 1;
-                if (newCount == 0) charCount.remove(c1);
-                else charCount.put(c1, newCount);
+                if (newCount == 0)
+                    charCount.remove(c1);
+                else
+                    charCount.put(c1, newCount);
             }
-            
+
             char c2 = s2.charAt(i);
             if (!charCount.containsKey(c2)) {
                 charCount.put(c2, -1);
             } else {
                 int newCount = charCount.get(c2) - 1;
-                if (newCount == 0) charCount.remove(c2);
-                else charCount.put(c2, newCount);
+                if (newCount == 0)
+                    charCount.remove(c2);
+                else
+                    charCount.put(c2, newCount);
             }
         }
 
-        if (charCount.isEmpty()) return true;
+        if (charCount.isEmpty())
+            return true;
 
         int left = 1;
         int right = s1.length();
@@ -35,8 +41,10 @@ class Solution {
                 charCount.put(c1, 1);
             } else {
                 int newCount = charCount.get(c1) + 1;
-                if (newCount == 0) charCount.remove(c1);
-                else charCount.put(c1, newCount);
+                if (newCount == 0)
+                    charCount.remove(c1);
+                else
+                    charCount.put(c1, newCount);
             }
 
             char c2 = s2.charAt(right);
@@ -44,11 +52,14 @@ class Solution {
                 charCount.put(c2, -1);
             } else {
                 int newCount = charCount.get(c2) - 1;
-                if (newCount == 0) charCount.remove(c2);
-                else charCount.put(c2, newCount);
+                if (newCount == 0)
+                    charCount.remove(c2);
+                else
+                    charCount.put(c2, newCount);
             }
 
-            if (charCount.isEmpty()) return true;
+            if (charCount.isEmpty())
+                return true;
 
             left++;
             right++;

@@ -22,18 +22,21 @@ class Solution {
     }
 
     public boolean existRec(int i, int j, int wIndex) {
-        if (i < 0 || i >= m || j < 0 || j >= n) return false;
-        if (board[i][j] != word.charAt(wIndex)) return false;
+        if (i < 0 || i >= m || j < 0 || j >= n)
+            return false;
+        if (board[i][j] != word.charAt(wIndex))
+            return false;
 
         wIndex++;
-        if (wIndex == word.length()) return true;
+        if (wIndex == word.length())
+            return true;
 
         char c = board[i][j];
         board[i][j] = '.';
         boolean r = existRec(i - 1, j, wIndex)
-            || existRec(i + 1, j, wIndex)
-            || existRec(i, j - 1, wIndex)
-            || existRec(i, j + 1, wIndex);
+                || existRec(i + 1, j, wIndex)
+                || existRec(i, j - 1, wIndex)
+                || existRec(i, j + 1, wIndex);
         board[i][j] = c;
         return r;
     }

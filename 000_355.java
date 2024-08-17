@@ -13,11 +13,11 @@ class Twitter {
         tweets = new ArrayList<>();
         follows = new HashMap<>();
     }
-    
+
     public void postTweet(int userId, int tweetId) {
         tweets.add(new int[] { userId, tweetId });
     }
-    
+
     public List<Integer> getNewsFeed(int userId) {
         List<Integer> result = new ArrayList<>();
         Set<Integer> followed = follows.get(userId);
@@ -33,11 +33,11 @@ class Twitter {
         }
         return result;
     }
-    
+
     public void follow(int followerId, int followeeId) {
         follows.computeIfAbsent(followerId, v -> new HashSet<>()).add(followeeId);
     }
-    
+
     public void unfollow(int followerId, int followeeId) {
         if (follows.containsKey(followerId)) {
             if (follows.get(followerId).contains(followeeId)) {

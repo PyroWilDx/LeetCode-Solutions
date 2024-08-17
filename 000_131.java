@@ -18,7 +18,7 @@ class Solution {
         for (int i = 0; i < N; i++) {
             partitionRec(0, i + 1, l);
         }
-  
+
         return result;
     }
 
