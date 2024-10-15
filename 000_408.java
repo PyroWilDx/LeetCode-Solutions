@@ -2,34 +2,31 @@ class Solution {
     public boolean validWordAbbreviation(String word, String abbr) {
         int i = 0;
         int j = 0;
-        while (i < abbr.length()) {
-            if (j >= word.length()) {
-                return false;
-            }
-            char c = abbr.charAt(i);
-            if (Character.isDigit(c)) {
-                if (c == '0') {
-                    return false;
-                }
-                int num = 0;
-                while (Character.isDigit(c)) {
-                    num *= 10;
-                    num += c - '0';
-                    i++;
-                    if (i >= abbr.length()) {
-                        break;
-                    }
-                    c = abbr.charAt(i);
-                }
-                j += num;
-            } else {
-                if (c != word.charAt(j)) {
-                    return false;
-                }
+        while (i < word.length() && j < abbr.length()) {
+            char c1 = word.charAt(i);
+            char c2 = abbr.charAt(j);
+            if (c1 == c2) {
                 i++;
                 j++;
+                continue;
             }
+
+            if (!Character.isDigit(c2) || c2 == '0') {
+                return false;
+            }
+
+            int num = 0;
+            while (Character.isDigit(c2)) {
+                num *= 10;
+                num += c2 - '0';
+                j++;
+                if (j == abbr.length()) {
+                    break;
+                }
+                c2 = abbr.charAt(j);
+            }
+            i += num;
         }
-        return j == word.length();
+        return i == word.length() && j == abbr.length();
     }
 }
