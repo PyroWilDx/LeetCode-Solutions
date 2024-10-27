@@ -6,13 +6,8 @@
 
 <div align="center">
 
-[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" width="60"/>](https://www.java.com/)
-&nbsp;&nbsp;&nbsp;&nbsp;
-[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" width="60"/>](https://code.visualstudio.com/)
-&nbsp;&nbsp;&nbsp;&nbsp;
-[<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows8/windows8-original.svg" width="60"/>](https://www.microsoft.com/windows/)
-
-[LeetCode](https://leetcode.com/)
+| [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" width="60"/>](https://www.java.com/) | [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" width="60"/>](https://code.visualstudio.com/) | [<img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows8/windows8-original.svg" width="60"/>](https://www.microsoft.com/windows/) |
+|---|---|---|
 
 </div>
 

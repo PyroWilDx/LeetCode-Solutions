@@ -1,7 +1,7 @@
 class Solution {
     private int[][] grid;
 
-    public void islandsAndTreasure(int[][] grid) {
+    public void wallsAndGates(int[][] grid) {
         this.grid = grid;
 
         for (int i = 0; i < grid.length; i++) {
